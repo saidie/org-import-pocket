@@ -11,11 +11,14 @@ exit 0 if items.empty?
 puts '* TOREAD'
 items.values.each do |item|
   added = Time.at(item['time_added'].to_i)
+  title = item['resolved_title'] || item['given_title']
+  url = item['resolved_url'] || item['given_url']
+
   puts <<ARTICLE
-** #{item['resolved_title']}
+** #{title}
 [#{added.strftime('%Y-%m-%d %a %H:%M')}]
 
-#{item['resolved_url']}
+#{url}
 
 #{item['excerpt']}
 
