@@ -66,6 +66,7 @@ def get_items(params = {})
     {
       consumer_key: consumer_key,
       access_token: access_token,
+      detailType: :complete,
     }.merge(params)
   )
   content = http_get(url)
