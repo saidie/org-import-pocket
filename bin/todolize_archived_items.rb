@@ -13,9 +13,11 @@ items.values.each do |item|
   added = Time.at(item['time_added'].to_i)
   title = item['resolved_title'] || item['given_title']
   url = item['resolved_url'] || item['given_url']
+  tags = (item['tags'] || {}).keys.join(':')
+  tags = " :#{tags}:" unless tags.empty?
 
   puts <<ARTICLE
-** #{title}
+** #{title}#{tags}
 [#{added.strftime('%Y-%m-%d %a %H:%M')}]
 
 #{url}
