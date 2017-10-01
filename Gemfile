@@ -1,4 +1,7 @@
 source "https://rubygems.org"
 
 gem 'addressable', require: 'addressable/uri'
-gem 'pry-byebug'
+
+group :development do
+  gem 'pry-byebug'
+end
